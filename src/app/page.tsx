@@ -10,9 +10,58 @@ import PerformerAdditional from "@/components/PerformerAdditional";
 import CrewAdditional from "@/components/CrewAdditional";
 import ReviewAndSave from "@/components/ReviewAndSave";
 
-type Data = {
-  category: string,
-}
+
+type EventBasics = {
+  name: string;
+  type: string;
+  date: string;
+  endDate: string;
+  location: string;
+  venue: string;
+};
+
+type EventPlannerData = EventBasics & {
+  category: "Event Planner";
+  services: string;
+  guestCount: string;
+  budget: string;
+  stage: string;
+  description: string;
+  setupRequirements: string[];
+  breakdownRequired: "Yes" | "No";
+  vendorCoordination: "Yes" | "No";
+  specialRequests: string;
+};
+
+type PerformerData = EventBasics & {
+  category: "Performer";
+  performanceType: string;
+  mode: "Solo" | "Group";
+  duration: string;
+  genre: string;
+  budget: string;
+  requirements: string;
+  equipment: string[];
+  stageSetup: "Yes" | "No";
+  travel: string;
+  specialRequests: string;
+};
+
+type CrewData = EventBasics & {
+  category: "Crew";
+  role: string;
+  memberCount: string;
+  experience: string;
+  workingHours: string;
+  pay: string;
+  requirements: string;
+  skills: string[];
+  equipment: string;
+  dressCode: string;
+  specialRequests: string;
+};
+
+export type Data = EventPlannerData | PerformerData | CrewData;
 
 export default function Home() {
   const [step, setStep] = useState(1);

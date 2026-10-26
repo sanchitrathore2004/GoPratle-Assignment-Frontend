@@ -51,13 +51,23 @@ export default function ReviewAndSave({ data, handleSubmit }: Props) {
         </p>
       </div>
 
-      <button
-      onClick={handleSubmit}
-        type="submit"
-        className="w-full rounded-lg bg-[#e02d4b] px-6 py-3 font-semibold text-white transition hover:bg-[#c92340] focus:outline-none focus:ring-2 focus:ring-[#e02d4b] focus:ring-offset-2"
-      >
-        Submit Requirements
-      </button>
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <button
+            onClick={handleSubmit}
+            type="button"
+            className="w-full rounded-lg bg-[#2de060] px-6 py-3 font-semibold text-white transition hover:bg-[#24bd4f] focus:outline-none focus:ring-2 focus:ring-[#2de060] focus:ring-offset-2"
+        >
+            Submit Requirements
+        </button>
+
+        <button
+            onClick={() => window.location.reload()}
+            type="button"
+            className="w-full rounded-lg bg-[#b81631] px-6 py-3 font-semibold text-white transition hover:bg-[#971328] focus:outline-none focus:ring-2 focus:ring-[#b81631] focus:ring-offset-2"
+        >
+            Reset
+        </button>
+        </div>
     </div>
   );
 }

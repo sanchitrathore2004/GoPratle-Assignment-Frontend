@@ -30,6 +30,13 @@ const schema = z.object({
     message: "Please select a category",
   }),
 }).refine(
+  (data) => data.date >= new Date().toISOString().split("T")[0],
+  {
+    message: "Event date cannot be in the past",
+    path: ["date"],
+  }
+)
+.refine(
   (data) => !data.endDate || data.endDate >= data.date,
   {
     message: "End date cannot be before the event date",

@@ -19,7 +19,6 @@ export default function ReviewAndSave({ data, handleSubmit }: Props) {
   return (
     <div className="space-y-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900">Review Your Event</h2>
         <p className="mt-2 text-sm">
           Review the details below before submitting your requirements.
         </p>

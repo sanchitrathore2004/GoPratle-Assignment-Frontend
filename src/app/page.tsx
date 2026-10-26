@@ -23,6 +23,17 @@ export default function Home() {
     setStep((prev) => prev+1);
   }
 
+  const chooseHeading = () => {
+    if(step === 1 ) return "Event Basics";
+    if(step === 2 && eventData && eventData.category === "Event Planner") return "Event Planner Details";
+    if(step === 2 && eventData && eventData.category === "Performer") return "Performer Details";
+    if(step === 2 && eventData && eventData.category === "Crew") return "Crew Details";
+    if(step === 3 && eventData && eventData.category === "Event Planner") return "Additional Event Planner Details";
+    if(step === 3 && eventData && eventData.category === "Performer") return "Additional Performer Details";
+    if(step === 3 && eventData && eventData.category === "Crew") return "Additional Crew Details";
+    if(step === 4) return "Review and Save";
+  }
+
   const handleSubmit = () => {
     console.log(eventData);
   }
@@ -42,7 +53,7 @@ export default function Home() {
             Step {step} of 4
           </p>
           <h1 className="mt-2 text-3xl font-bold text-gray-900">
-            Event Basics
+            {chooseHeading()}
           </h1>
         </div>
         {step === 1 && (

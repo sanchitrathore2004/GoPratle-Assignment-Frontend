@@ -16,6 +16,17 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Docker
+
+Build and run the production image from this directory:
+
+```bash
+docker build --build-arg NEXT_PUBLIC_BACKEND_URL=http://localhost:8080 -t gopratle-frontend .
+docker run --rm -p 3000:3000 gopratle-frontend
+```
+
+`NEXT_PUBLIC_BACKEND_URL` is embedded in the frontend at build time. Set it to the backend URL reachable by the user's browser; `http://localhost:8080` is suitable when the backend publishes port 8080 on the same host.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

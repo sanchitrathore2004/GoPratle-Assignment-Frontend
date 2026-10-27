@@ -9,6 +9,7 @@ import EventPlannerAdditional from "@/components/EventPlannerAdditional";
 import PerformerAdditional from "@/components/PerformerAdditional";
 import CrewAdditional from "@/components/CrewAdditional";
 import ReviewAndSave from "@/components/ReviewAndSave";
+import { BACKEND_URL } from '@/config/config';
 
 
 type EventBasics = {
@@ -83,9 +84,23 @@ export default function Home() {
     if(step === 4) return "Review and Save";
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log(eventData);
+    try {
+      const response = await fetch(`${BACKEND_URL}/api/submit/v1`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(eventData),
+      });
+      const result = await response.json();
+      console.log("Submission successful:", result);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   }
+
   return (
     <div className="min-h-screen w-full bg-gray-50">
       <div className="mx-auto mt-[2.5vw] flex h-[160px] w-[90%] items-center">

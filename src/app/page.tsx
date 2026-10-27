@@ -10,6 +10,7 @@ import PerformerAdditional from "@/components/PerformerAdditional";
 import CrewAdditional from "@/components/CrewAdditional";
 import ReviewAndSave from "@/components/ReviewAndSave";
 import { BACKEND_URL } from '@/config/config';
+import { toast } from 'sonner';
 
 
 type EventBasics = {
@@ -96,8 +97,11 @@ export default function Home() {
       });
       const result = await response.json();
       console.log("Submission successful:", result);
+      setTimeout(() => window.location.reload(), 2000);
+      toast.success("Submission successful!");
     } catch (error) {
       console.error("Error submitting form:", error);
+      toast.error("Error submitting form.");
     }
   }
 

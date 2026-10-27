@@ -108,11 +108,11 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full bg-gray-50">
       <div className="mx-auto mt-[2.5vw] flex h-[160px] w-[90%] items-center">
-        <div className="flex h-[80%] w-[75%] items-center bg-[#e02d4b] pl-[4vw] text-5xl font-bold text-white">
+        <div className="flex h-[10vw] w-[75%] items-center bg-[#e02d4b] pl-[4vw] text-[4vw] font-bold text-white">
           Eventlyst
         </div>
 
-        <div className=" h-full w-[25%] bg-[#ad1c21] [clip-path:polygon(20%_0,100%_0,100%_100%,20%_100%,0_50%)] -ml-15" />
+        <div className=" h-[12vw] w-[25%] bg-[#ad1c21] [clip-path:polygon(20%_0,100%_0,100%_100%,20%_100%,0_50%)] -ml-15" />
       </div>
 
       <div className="mx-auto w-[90%] max-w-3xl py-12">
